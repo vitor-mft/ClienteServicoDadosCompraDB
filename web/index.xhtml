@@ -22,9 +22,7 @@
                 </h:column> 
                 <h:column>
                     <f:facet name="header">Endereço</f:facet>
-                    <h:outputLabel value="#{obj.endereco}">
-                        <f:converter converterId="converterData"/>
-                    </h:outputLabel>
+                    <h:outputLabel value="#{obj.endereco}"/>
                 </h:column> 
                 <h:column>
                     <f:facet name="header">CEP Origem</f:facet>
@@ -44,16 +42,18 @@
                 </h:column> 
                 <h:column>
                     <f:facet name="header">Data Entrega</f:facet>
-                    <h:outputLabel value="#{obj.dataEntrega}"/>
+                    <h:outputLabel value="#{obj.dataEntrega}">
+                        <f:converter converterId="converterData"/>
+                    </h:outputLabel>
                 </h:column> 
-                
+
                 <h:column>
                     <h:commandLink value="Alterar"
-                                   action="#{controlePessoa.alterar(obj)}"/>
+                                   action="#{controleDadosCompra.alterar(obj)}"/>
                 </h:column>
                 <h:column>
                     <h:commandLink value="Excluir"
-                                   action="#{controlePessoa.remover(obj.id)}"/>
+                                   action="#{controleDadosCompra.remover(obj.id)}"/>
                 </h:column>                
             </h:dataTable>
         </h:form>
