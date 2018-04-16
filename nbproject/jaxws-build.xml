@@ -42,5 +42,101 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService"/>
+    <target name="wsimport-client-ServicoDadosCompraService_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_1/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_1/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_1"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_2/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_2/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_2" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_2"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_3" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_3/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_3/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_3" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_3"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_4" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_4/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_4/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_4" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_4"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_5" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_5/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_5/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_5" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_5"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_6" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_6/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_6/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_6" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService, wsimport-client-ServicoDadosCompraService_1, wsimport-client-ServicoDadosCompraService_2, wsimport-client-ServicoDadosCompraService_3, wsimport-client-ServicoDadosCompraService_4, wsimport-client-ServicoDadosCompraService_5, wsimport-client-ServicoDadosCompraService_6"/>
 </project>

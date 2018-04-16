@@ -27,30 +27,35 @@ public class controleDadosCompra implements Serializable{
     @EJB
     private DadosCompraDAO dao;
 
+        private Boolean editando;
     
     
     public controleDadosCompra(){
-        
+         editando = false;
     }
     
-    public String novo(){
+    public void novo(){
+         editando = true;
         objeto = new DadosCompra();
         objeto.setId(0);
-        return "form?faces-redirect=true";
+       // System.out.println("Chegou no NOVO");
+      //  return "form?faces-redirect=true";
     }
     
-    public String alterar(DadosCompra obj){
+    public void alterar(DadosCompra obj){
         objeto = obj;
-        return "form?faces-redirect=true";
+       // return "form?faces-redirect=true";
+       editando = true;
     }
     
-    public String salvar(){
+    public void salvar(){
         if (objeto.getId() == 0){
             dao.inserir(objeto);
         }else{
             dao.alterar(objeto);
         }
-        return "index?faces-redirect=true";
+        editando = false;
+       // return "index?faces-redirect=true";
     }
     
     public void remover (Integer id){
@@ -71,6 +76,14 @@ public class controleDadosCompra implements Serializable{
 
     public void setDao(DadosCompraDAO dao) {
         this.dao = dao;
+    }
+    
+     public Boolean getEditando() {
+        return editando;
+    }
+
+    public void setEditando(Boolean editando) {
+        this.editando = editando;
     }
     
     

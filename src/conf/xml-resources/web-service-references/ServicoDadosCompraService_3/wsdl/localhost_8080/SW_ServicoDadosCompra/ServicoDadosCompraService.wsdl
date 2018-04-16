@@ -4,23 +4,11 @@
 <xsd:import namespace="http://servicos.ifsul.edu.br/" schemaLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="inserir">
-<part name="parameters" element="tns:inserir"/>
-</message>
-<message name="inserirResponse">
-<part name="parameters" element="tns:inserirResponse"/>
-</message>
 <message name="alterar">
 <part name="parameters" element="tns:alterar"/>
 </message>
 <message name="alterarResponse">
 <part name="parameters" element="tns:alterarResponse"/>
-</message>
-<message name="remover">
-<part name="parameters" element="tns:remover"/>
-</message>
-<message name="removerResponse">
-<part name="parameters" element="tns:removerResponse"/>
 </message>
 <message name="listaDadosCompra">
 <part name="parameters" element="tns:listaDadosCompra"/>
@@ -28,27 +16,39 @@
 <message name="listaDadosCompraResponse">
 <part name="parameters" element="tns:listaDadosCompraResponse"/>
 </message>
+<message name="remover">
+<part name="parameters" element="tns:remover"/>
+</message>
+<message name="removerResponse">
+<part name="parameters" element="tns:removerResponse"/>
+</message>
+<message name="inserir">
+<part name="parameters" element="tns:inserir"/>
+</message>
+<message name="inserirResponse">
+<part name="parameters" element="tns:inserirResponse"/>
+</message>
 <portType name="ServicoDadosCompra">
-<operation name="inserir">
-<input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/inserirRequest" message="tns:inserir"/>
-<output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/inserirResponse" message="tns:inserirResponse"/>
-</operation>
 <operation name="alterar">
 <input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/alterarRequest" message="tns:alterar"/>
 <output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/alterarResponse" message="tns:alterarResponse"/>
-</operation>
-<operation name="remover">
-<input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/removerRequest" message="tns:remover"/>
-<output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/removerResponse" message="tns:removerResponse"/>
 </operation>
 <operation name="listaDadosCompra">
 <input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/listaDadosCompraRequest" message="tns:listaDadosCompra"/>
 <output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/listaDadosCompraResponse" message="tns:listaDadosCompraResponse"/>
 </operation>
+<operation name="remover">
+<input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/removerRequest" message="tns:remover"/>
+<output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/removerResponse" message="tns:removerResponse"/>
+</operation>
+<operation name="inserir">
+<input wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/inserirRequest" message="tns:inserir"/>
+<output wsam:Action="http://servicos.ifsul.edu.br/ServicoDadosCompra/inserirResponse" message="tns:inserirResponse"/>
+</operation>
 </portType>
 <binding name="ServicoDadosCompraPortBinding" type="tns:ServicoDadosCompra">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="inserir">
+<operation name="alterar">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -57,7 +57,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="alterar">
+<operation name="listaDadosCompra">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -75,7 +75,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listaDadosCompra">
+<operation name="inserir">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

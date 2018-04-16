@@ -2,48 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Edição dos Dados das Compras </title>
-    </h:head>
-    <h:body>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="ID: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.id}"
-                             size="5" readonly="true"/>
-                <h:outputLabel value="Cliente "/>
-                <h:inputText value="#{controleDadosCompra.objeto.cliente}" 
-                             size="50" maxlength="50"/>
-                <h:outputLabel value="Data de Entrega "/>
-                <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
-                             size="12" maxlength="10">
-                    <f:converter converterId="converterData"/>
-                </h:inputText>
-                <h:outputLabel value="CEP origem: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.cepOrigem}"
-                             size="10" maxlength="10"/>
-                <h:outputLabel value="CEP Destino: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.cepDestino}"
-                             size="10" maxlength="10"/>
-                <h:outputLabel value="Endereço: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.endereco }"
-                             size="50" maxlength="50"/>
-                <h:outputLabel value="Valor do Frete: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.valorFrete}"
-                             size="10" maxlength="10"/>
-                <h:outputLabel value="Valor Total da Compra: "/>
-                <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
-                             size="10" maxlength="10"/>
-                
-                <f:facet name="footer">
-                    <div align="center">
-                        <h:commandButton value="Salvar"
-                                         action="#{controleDadosCompra.salvar()}"/>
-                    </div>
-                </f:facet>
-            </h:panelGrid>
-        </h:form>
-    </h:body>
-</html>
 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <!--Formulario de Edição dos Animais -->
+    <h:form id="formEdicao">
+        <h:panelGroup rendered="#{controleDadosCompra.editando}">
+            <div class="ui-fluid">
+                <!-- Para Mensagens de Erro -->
+                <p:messages/>
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-2, ui-grid-col-20"
+                             layout="grid" styleClass="ui-panelgrid-blank">
+                    <f:facet name="header">
+                        <p:outputLabel value="Edição dos Dados de Compra"/>
+                    </f:facet>
+                    <h:outputLabel value="ID: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.id}"
+                                 size="5" readonly="true"/>
+                    <h:outputLabel value="Cliente "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.cliente}" 
+                                 size="50" maxlength="50"/>
+                    <h:outputLabel value="Data de Entrega "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
+                                 size="12" maxlength="10">
+                        <f:converter converterId="converterData"/>
+                    </h:inputText>
+                    <h:outputLabel value="CEP origem: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.cepOrigem}"
+                                 size="10" maxlength="10"/>
+                    <h:outputLabel value="CEP Destino: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.cepDestino}"
+                                 size="10" maxlength="10"/>
+                    <h:outputLabel value="Endereço: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.endereco }"
+                                 size="50" maxlength="50"/>
+                    <h:outputLabel value="Valor do Frete: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.valorFrete}"
+                                 size="10" maxlength="10"/>
+                    <h:outputLabel value="Valor Total da Compra: "/>
+                    <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
+                                 size="10" maxlength="10"/>
+
+                                     <p:commandButton value="Salvar" icon="ui-icon-disk"
+                                     actionListener="#{controleDadosCompra.salvar()}"
+                                     update="formEdicao formListagem"/>
+                </p:panelGrid>
+
+            </div>
+        </h:panelGroup>
+    </h:form>
+</html>
