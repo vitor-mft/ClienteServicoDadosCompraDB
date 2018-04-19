@@ -138,5 +138,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_6"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService, wsimport-client-ServicoDadosCompraService_1, wsimport-client-ServicoDadosCompraService_2, wsimport-client-ServicoDadosCompraService_3, wsimport-client-ServicoDadosCompraService_4, wsimport-client-ServicoDadosCompraService_5, wsimport-client-ServicoDadosCompraService_6"/>
+    <target name="wsimport-client-CalcPrecoPrazo" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo" destdir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CalcPrecoPrazo/wsdl/ws.correios.com.br/calculador/CalcPrecoPrazo.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CalcPrecoPrazo/wsdl/ws.correios.com.br/calculador/CalcPrecoPrazo.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CalcPrecoPrazo" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService, wsimport-client-ServicoDadosCompraService_1, wsimport-client-ServicoDadosCompraService_2, wsimport-client-ServicoDadosCompraService_3, wsimport-client-ServicoDadosCompraService_4, wsimport-client-ServicoDadosCompraService_5, wsimport-client-ServicoDadosCompraService_6, wsimport-client-CalcPrecoPrazo"/>
 </project>
