@@ -57,6 +57,10 @@ public class controleDadosCompra implements Serializable{
         editando = false;
        // return "index?faces-redirect=true";
     }
+    public void voltar(){
+        editando = false;
+                
+    }
     
     public void remover (Integer id){
         dao.remover(id);

@@ -19,57 +19,57 @@
                                          update="formEdicao formListagem"/>
                     </div>
                     <br />
-                    <div class="ui-fluid" style="width: 100%" align="center">
+                    <div class="ui-fluid" align="center">
 
                         <p:dataTable value="#{controleDadosCompra.dao.listaDadosCompra}"
                                      var="obj">
 
-                            <p:column headerText="ID">
-                                <div align="center">
+                            <p:column headerText="ID" style="text-align: center">
+                               
                                     <p:outputLabel value="#{obj.id}"/>
-                                </div>
+                              
                             </p:column>
-
-                            <p:column headerText="Cliente">
+                            <p:column headerText="Cliente" style="text-align: center">
                                 <h:outputLabel value="#{obj.cliente}"/>
                             </p:column>
 
-                            <p:column headerText="Endereço">
+                            <p:column headerText="Endereço" style="text-align: center">
                                 <h:outputLabel value="#{obj.endereco}"/>
                             </p:column>
 
-                            <p:column headerText="CEP Origem">
+                            <p:column headerText="CEP Origem" style="text-align: center">
                                 <h:outputLabel value="#{obj.cepOrigem}"/>
                             </p:column>
 
-                            <p:column headerText="CEP Destino">
+                            <p:column headerText="CEP Destino" style="text-align: center">
                                 <h:outputLabel value="#{obj.cepDestino}"/>
                             </p:column>
 
-                            <p:column headerText="Valor do Frete">
+                            <p:column headerText="Valor do Frete" style="text-align: center">
                                 <h:outputLabel value="#{obj.valorCompra}"/>
                             </p:column>
 
-                            <p:column headerText="Data de Entrega">
+                            <p:column headerText="Data de Entrega" style="text-align: center">
                                 <h:outputLabel value="#{obj.dataEntrega}">
                                     <f:converter converterId="converterData"/>
                                 </h:outputLabel>
                             </p:column>
 
-                            <p:column headerText="Valor do Frete">
+                            <p:column headerText="Valor do Frete" style="text-align: center">
                                 <h:outputLabel value="#{obj.valorFrete}"/>
                             </p:column>
-                            <p:column headerText="Ações">
+                            <p:column headerText="Ações" style="text-align: center">
                                 <div align="center">
                                     <p:commandButton icon="ui-icon-pencil" 
                                                      actionListener="#{controleDadosCompra.alterar(obj)}" 
                                                       process="@this"
                                                       update="formListagem :formEdicao"/>
                                     <p:commandButton icon="ui-icon-trash"
-                                                     actionListener="#{controleDadosCompra.remover(obj.id)}"/>
+                                                     actionListener="#{controleDadosCompra.remover(obj.id)}"
+                                                      process="@this"
+                                                      update="formListagem :formEdicao"/>
                                 </div>
                             </p:column>
-
                         </p:dataTable>
                     </div> 
                 </h:panelGroup>               

@@ -22,6 +22,7 @@
                     <h:outputLabel value="Cliente "/>
                     <h:inputText value="#{controleDadosCompra.objeto.cliente}" 
                                  size="50" maxlength="50"/>
+
                     <h:outputLabel value="Data de Entrega "/>
                     <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
                                  size="12" maxlength="10">
@@ -42,9 +43,26 @@
                     <h:outputLabel value="Valor Total da Compra: "/>
                     <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
                                  size="10" maxlength="10"/>
+                    
+                    
+                    <h:outputLabel value="Tipo de Frete: "/>
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                        <p:selectOneRadio id="tipoFrete">
+                            <f:selectItem itemLabel="Pac" itemValue="Pac" />
+                            <f:selectItem itemLabel="Sedex" itemValue="Sedex" />
+                            <f:selectItem itemLabel="Carta Registrada" itemValue="Carta Registrada" />
+                        </p:selectOneRadio>
+                    </h:panelGrid>
 
-                                     <p:commandButton value="Salvar" icon="ui-icon-disk"
+
+
+
+                    <p:commandButton value="Salvar" icon="ui-icon-disk"
                                      actionListener="#{controleDadosCompra.salvar()}"
+                                     update="formEdicao formListagem"/>
+
+                    <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-s"
+                                     actionListener="#{controleDadosCompra.voltar()}"
                                      update="formEdicao formListagem"/>
                 </p:panelGrid>
 
