@@ -13,6 +13,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 
 import javax.inject.Named;
+import org.tempuri.CalcPrecoPrazoWS;
 
 /**
  *
@@ -26,6 +27,8 @@ public class controleDadosCompra implements Serializable{
    
     @EJB
     private DadosCompraDAO dao;
+    
+    private CalcPrecoPrazoWS freteCorreios; 
 
         private Boolean editando;
     
@@ -88,6 +91,33 @@ public class controleDadosCompra implements Serializable{
 
     public void setEditando(Boolean editando) {
         this.editando = editando;
+    }
+    
+    //Parte do Correio
+    
+    //Função que vai ser acionada no botao no form
+    public void calcularFrete(){
+        this.calculaDataMaxima();
+        this.calculaPreco();
+    }
+    
+    public void calculaDataMaxima(){
+        System.out.println("Chegou  no Calcula Data TIPO:"
+                +getObjeto().getFrete()+"CEP Origem"
+                +getObjeto().getCepOrigem()+"CEP DESTINO"
+                +getObjeto().getCepDestino());
+       
+        objeto.setDataEntrega(freteCorreios.getCalcPrecoPrazoWSSoap()
+             .calcPrazo(objeto.getFrete(),
+                     objeto.getCepOrigem(),
+                     objeto.getCepDestino()).getServicos().getCServico().get(0).getDataMaxEntrega());
+       
+    }
+    
+    
+    public void calculaPreco(){
+       
+        
     }
     
     

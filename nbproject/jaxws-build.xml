@@ -154,5 +154,37 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
         <delete dir="${build.generated.dir}/jax-wsCache/CalcPrecoPrazo"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService, wsimport-client-ServicoDadosCompraService_1, wsimport-client-ServicoDadosCompraService_2, wsimport-client-ServicoDadosCompraService_3, wsimport-client-ServicoDadosCompraService_4, wsimport-client-ServicoDadosCompraService_5, wsimport-client-ServicoDadosCompraService_6, wsimport-client-CalcPrecoPrazo"/>
+    <target name="wsimport-client-ServicoDadosCompraService_7" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_7/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_7/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_7" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_7"/>
+    </target>
+    <target name="wsimport-client-ServicoDadosCompraService_8" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8" destdir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_8/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SW_ServicoDadosCompra/ServicoDadosCompraService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ServicoDadosCompraService_8/wsdl/localhost_8080/SW_ServicoDadosCompra/ServicoDadosCompraService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicoDadosCompraService_8" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/br/edu/ifsul/servicos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoDadosCompraService_8"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicoDadosCompraService, wsimport-client-ServicoDadosCompraService_1, wsimport-client-ServicoDadosCompraService_2, wsimport-client-ServicoDadosCompraService_3, wsimport-client-ServicoDadosCompraService_4, wsimport-client-ServicoDadosCompraService_5, wsimport-client-ServicoDadosCompraService_6, wsimport-client-CalcPrecoPrazo, wsimport-client-ServicoDadosCompraService_7, wsimport-client-ServicoDadosCompraService_8"/>
 </project>

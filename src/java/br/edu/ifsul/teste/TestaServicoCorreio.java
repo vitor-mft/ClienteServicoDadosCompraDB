@@ -20,20 +20,14 @@ public class TestaServicoCorreio {
     public static void main(String[] args) {
         CalcPrecoPrazoWS servico = new CalcPrecoPrazoWS();
 
-        CResultado resultado = servico.getCalcPrecoPrazoWSSoap().calcPrecoPrazo(null, null, "40010", "99150000", "99030050", "0.4", 1, new BigDecimal(50.0), new BigDecimal(50.0), new BigDecimal(50.0), new BigDecimal(50.0), "n", new BigDecimal(50.0), "n");
-
-        List<CServico> list = resultado.getServicos().getCServico();
+        CResultado resultado = servico.getCalcPrecoPrazoWSSoap().calcPreco("", "", "04510", "99025530", "88010020", "0.4", 1, new BigDecimal(20.0), new BigDecimal(20.0), new BigDecimal(20.0), new BigDecimal(20.0), "N", new BigDecimal(0.0), "N");
 
         try {
 
-            for (CServico c : list) {
+            System.out.println("" + resultado.getServicos().getCServico().get(0).getValor());
 
-                System.out.println("" + c.getValor());
-
-            }
         } catch (Exception e) {
             System.out.println("erro" + e);
         }
     }
-    
 }

@@ -23,50 +23,70 @@
                     <h:inputText value="#{controleDadosCompra.objeto.cliente}" 
                                  size="50" maxlength="50"/>
 
-                    <h:outputLabel value="Data de Entrega "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
-                                 size="12" maxlength="10">
-                        <f:converter converterId="converterData"/>
-                    </h:inputText>
-                    <h:outputLabel value="CEP origem: "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.cepOrigem}"
-                                 size="10" maxlength="10"/>
-                    <h:outputLabel value="CEP Destino: "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.cepDestino}"
-                                 size="10" maxlength="10"/>
-                    <h:outputLabel value="Endereço: "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.endereco }"
-                                 size="50" maxlength="50"/>
-                    <h:outputLabel value="Valor do Frete: "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.valorFrete}"
-                                 size="10" maxlength="10"/>
-                    <h:outputLabel value="Valor Total da Compra: "/>
-                    <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
-                                 size="10" maxlength="10"/>
-                    
-                    
-                    <h:outputLabel value="Tipo de Frete: "/>
-                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                        <p:selectOneRadio id="tipoFrete">
-                            <f:selectItem itemLabel="Pac" itemValue="Pac" />
-                            <f:selectItem itemLabel="Sedex" itemValue="Sedex" />
-                            <f:selectItem itemLabel="Carta Registrada" itemValue="Carta Registrada" />
-                        </p:selectOneRadio>
-                    </h:panelGrid>
-
-
-
-
-                    <p:commandButton value="Salvar" icon="ui-icon-disk"
-                                     actionListener="#{controleDadosCompra.salvar()}"
-                                     update="formEdicao formListagem"/>
-
-                    <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-s"
-                                     actionListener="#{controleDadosCompra.voltar()}"
-                                     update="formEdicao formListagem"/>
                 </p:panelGrid>
-
             </div>
+        </h:panelGroup>
+        <br />
+        <br />
+
+
+        <h:panelGroup rendered="#{controleDadosCompra.editando}">
+            <p:layoutUnit position="center">
+                
+                <h:outputLabel value="Tipo de Frete: "/>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:selectOneRadio id="frete" value="#{controleDadosCompra.objeto.frete}">
+                         <f:selectItem itemLabel="PAC Varejo" itemValue="41106" />
+                         <f:selectItem itemLabel="SEDEX à vista" itemValue="04014" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+
+                <h:outputLabel value="CEP Origem:  "/>
+                <h:inputText value="#{controleDadosCompra.objeto.cepOrigem}"
+                             onkeypress="mascara(this, '#####-###')"
+                             maxlength="9"
+                             size="10"/>
+                <br />
+                <h:outputLabel value="CEP Destino: "/>
+                <h:inputText value="#{controleDadosCompra.objeto.cepDestino}"
+                             size="10" maxlength="10"/>
+                <br />
+                <h:outputLabel value="Endereço: "/>
+                <h:inputText value="#{controleDadosCompra.objeto.endereco }"
+                             size="50" maxlength="50"/>
+                <br />
+                <br />
+                <p:commandButton value="Calcular Frete" icon=" ui-icon-calculator"
+                                 actionListener="#{controleDadosCompra.calcularFrete()}"
+                                 update="formEdicao formListagem"/>
+                <br />
+                <br />
+                <h:outputLabel value="Valor do Frete: "/>
+                <h:inputText value="#{controleDadosCompra.objeto.valorFrete}"
+                             size="10" readonly="true"/>
+                <h:outputLabel value="Data de Entrega "/>
+                <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
+                             size="12" readonly="true">
+                    <f:converter converterId="converterData"/>
+                </h:inputText>
+            </p:layoutUnit>
+        </h:panelGroup>
+        <br />
+        <br />
+
+        <h:panelGroup rendered="#{controleDadosCompra.editando}">
+            <h:outputLabel value="Valor Total da Compra: "/>
+            <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
+                         size="10" maxlength="10"/>
+            <br />
+            <br />
+            <p:commandButton value="Salvar" icon="ui-icon-disk"
+                             actionListener="#{controleDadosCompra.salvar()}"
+                             update="formEdicao formListagem"/>
+
+            <p:commandButton value="Voltar" icon="ui-icon-arrowreturnthick-1-s"
+                             actionListener="#{controleDadosCompra.voltar()}"
+                             update="formEdicao formListagem"/>
         </h:panelGroup>
     </h:form>
 </html>

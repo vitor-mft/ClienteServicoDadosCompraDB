@@ -7,10 +7,7 @@ package br.edu.ifsul.teste;
 
 import br.edu.ifsul.servicos.DadosCompra;
 import br.edu.ifsul.servicos.ServicoDadosCompraService;
-import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -27,15 +24,26 @@ public class TestaServicoDados {
         DadosCompra dados = new DadosCompra();
         dados.setId(10);
         dados.setCliente("Teste1");
-        dados.setCepOrigem(95985000);
-        dados.setCepDestino(5555555);
+        dados.setCepOrigem("95985000");
+        dados.setCepDestino("34333414");
         dados.setEndereco("Rua: Não sei ");
         dados.setValorCompra(500.00);
         dados.setValorFrete(10.00);
-            XMLGregorianCalendar data =
-                DatatypeFactory.newInstance().newXMLGregorianCalendar(
-        new GregorianCalendar());
-        dados.setDataEntrega(data);
+        dados.setDataEntrega("12/12/2018");
+        
+        dados.setFrete("41106");
+        dados.setAltura("12");
+        dados.setLargura("12");
+        dados.setComprimento("12");
+        dados.setDiametro("10");
+        dados.setAvisoRecebimento("N");
+        dados.setFormato(1);//1 caixa
+        dados.setMaoPropria("Não");
+        dados.setAvisoRecebimento("N");
+        dados.setValorDeclarado("500.00");
+        dados.setPeso("100");
+        
+      
         compra.getServicoDadosCompraPort().inserir(dados);
       
         
