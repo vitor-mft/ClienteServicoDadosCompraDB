@@ -9,10 +9,12 @@ package br.edu.ifsul.controle;
 import br.edu.ifsul.dao.DadosCompraDAO;
 import br.edu.ifsul.servicos.DadosCompra;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 
 import javax.inject.Named;
+import org.tempuri.CResultado;
 import org.tempuri.CalcPrecoPrazoWS;
 
 /**
@@ -27,14 +29,15 @@ public class controleDadosCompra implements Serializable{
    
     @EJB
     private DadosCompraDAO dao;
-    
-    private CalcPrecoPrazoWS freteCorreios; 
+ 
+    private CalcPrecoPrazoWS freteCorreios;
 
         private Boolean editando;
     
     
     public controleDadosCompra(){
          editando = false;
+         freteCorreios = new CalcPrecoPrazoWS();
     }
     
     public void novo(){
@@ -97,29 +100,28 @@ public class controleDadosCompra implements Serializable{
     
     //Função que vai ser acionada no botao no form
     public void calcularFrete(){
-        this.calculaDataMaxima();
-        this.calculaPreco();
-    }
-    
-    public void calculaDataMaxima(){
-        System.out.println("Chegou  no Calcula Data TIPO:"
-                +getObjeto().getFrete()+"CEP Origem"
-                +getObjeto().getCepOrigem()+"CEP DESTINO"
-                +getObjeto().getCepDestino());
-       
-        objeto.setDataEntrega(freteCorreios.getCalcPrecoPrazoWSSoap()
-             .calcPrazo(objeto.getFrete(),
-                     objeto.getCepOrigem(),
-                     objeto.getCepDestino()).getServicos().getCServico().get(0).getDataMaxEntrega());
-       
-    }
-    
-    
-    public void calculaPreco(){
-       
+         System.out.println("Chegou aqui no Calcula Frere RESULTADO : " );
+        CResultado resultado = freteCorreios.getCalcPrecoPrazoWSSoap().calcPrecoPrazo(                
+               "",
+                "", 
+               objeto.getFrete(),//Tipo do Frete (pac,Sedex) 
+                objeto.getCepOrigem(),
+             objeto.getCepDestino(),
+                 objeto.getPeso(),
+                 objeto.getFormato(),
+                 new BigDecimal(objeto.getComprimento()), //comprimento
+                new BigDecimal(objeto.getAltura()), //altura
+                new BigDecimal(objeto.getLargura()), //largura
+                new BigDecimal(objeto.getDiametro()), //diametro
+                objeto.getMaoPropria(),//Mao Propria
+               new BigDecimal(objeto.getValorDeclarado()),//valor declarado
+               objeto.getAvisoRecebimento());//aviso de recebimento
         
-    }
-    
-    
-    
+
+        System.out.println(resultado.getServicos().getCServico().get(0).getPrazoEntrega());
+        objeto.setDataEntrega(resultado.getServicos().getCServico().get(0).getPrazoEntrega());
+        objeto.setValorFrete(Double.parseDouble(resultado.getServicos().getCServico().get(0).getValor().replace(",", ".")));
+        
+        
+    }    
 }
