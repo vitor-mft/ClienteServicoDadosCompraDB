@@ -36,7 +36,8 @@
 
                 <h:outputLabel value="Tipo de Frete: "/>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:selectOneRadio id="frete" value="#{controleDadosCompra.objeto.frete}">
+                    <p:selectOneRadio id="frete" value="#{controleDadosCompra.objeto.frete}"
+                                      required="true" requiredMessage="O Tipo de Frete é Obrigatorio">
                         <f:selectItem itemLabel="PAC" itemValue="41106" />
                         <f:selectItem itemLabel="SEDEX" itemValue="04014" />
                     </p:selectOneRadio>
@@ -46,11 +47,13 @@
                 <h:inputText value="#{controleDadosCompra.objeto.cepOrigem}"
                              onkeypress="mascara(this, '#####-###')"
                              maxlength="9"
-                             size="10"/>
+                             size="10"
+                             required="true" requiredMessage="O CEP de Origem  é Obrigatorio"/>
                 <br />
                 <h:outputLabel value="CEP Destino: "/>
                 <h:inputText value="#{controleDadosCompra.objeto.cepDestino}"
-                             size="10" maxlength="10"/>
+                             size="10" maxlength="10"
+                             required="true" requiredMessage="O CEP de Destino é Obrigatorio"/>
                 <br />
                 <h:outputLabel value="Endereço: "/>
                 <h:inputText value="#{controleDadosCompra.objeto.endereco }"
@@ -59,23 +62,28 @@
                 <h:outputLabel value="Peso"/>
                 <h:inputText value="#{controleDadosCompra.objeto.peso }"
                              size="5" maxlength="5"
-                             required="true"/>
+                             required="true" requiredMessage="O Peso  é Obrigatorio"/>
                 <h:outputLabel value="Altura"/>
                 <h:inputText value="#{controleDadosCompra.objeto.altura }"
-                             size="5" maxlength="5"/>
+                             size="5" maxlength="5"
+                             required="true" requiredMessage="A Altura é Obrigatorio"/>
                 <h:outputLabel value="Largura"/>
                 <h:inputText value="#{controleDadosCompra.objeto.largura }"
-                             size="5" maxlength="5"/>
+                             size="5" maxlength="5"
+                             required="true" requiredMessage="A Largura é Obrigatorio"/>
                 <h:outputLabel value="Diametro"/>
                 <h:inputText value="#{controleDadosCompra.objeto.diametro }"
-                             size="5" maxlength="5"/>
+                             size="5" maxlength="5"
+                             required="true" requiredMessage="O Diametro  é Obrigatorio"/>
                 <h:outputLabel value="Comprimento"/>
                 <h:inputText value="#{controleDadosCompra.objeto.comprimento }"
-                             size="5" maxlength="5"/>
+                             size="5" maxlength="5"
+                             required="true" requiredMessage="o Comprimento é Obrigatorio"/>
                 <br />
                 <h:outputLabel value="Entrega em Mãos: "/>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:selectOneRadio id="maoPropria" value="#{controleDadosCompra.objeto.maoPropria}">
+                    <p:selectOneRadio id="maoPropria" value="#{controleDadosCompra.objeto.maoPropria}"
+                                      required="true" requiredMessage="Favor Selecione a Foma de Entrega:" >
                         <f:selectItem itemLabel="SIM" itemValue="S" />
                         <f:selectItem itemLabel="NÃO" itemValue="N" />
                     </p:selectOneRadio>
@@ -84,14 +92,16 @@
 
                 <h:outputLabel value="Aviso de Entrega: "/>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:selectOneRadio id="aviso" value="#{controleDadosCompra.objeto.avisoRecebimento}">
+                    <p:selectOneRadio id="aviso" value="#{controleDadosCompra.objeto.avisoRecebimento}"
+                                      required="true" requiredMessage="Favor Selecione se vai solicitar aviso de entrega:" >
                         <f:selectItem itemLabel="SIM" itemValue="S" />
                         <f:selectItem itemLabel="NÃO" itemValue="N" />
                     </p:selectOneRadio>
                 </h:panelGrid>
                 <h:outputLabel value="Tipo de Embalagem: "/>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:selectOneRadio id="formato" value="#{controleDadosCompra.objeto.formato}">
+                    <p:selectOneRadio id="formato" value="#{controleDadosCompra.objeto.formato}"
+                                      required="true" requiredMessage="Favor Selecione o tipo de Embalagem:" >
                         <f:selectItem itemLabel="Caixa" itemValue="1" />
                         <f:selectItem itemLabel="Rolo" itemValue="2" />
                         <f:selectItem itemLabel="Envelope" itemValue="3" />
@@ -104,18 +114,21 @@
                 <h:outputLabel value="Prazo de entrega: "/>
                 <h:inputText value="#{controleDadosCompra.objeto.dataEntrega}"
                              size="12" readonly="true"/>
-                
-                
-                
-               
-                    <br />
-                    <br />
-                    <p:commandButton value="Calcular Frete" icon=" ui-icon-calculator"
-                                     actionListener="#{controleDadosCompra.calcularFrete()}"
-                                     update="formEdicao formListagem"/>
-                    <br />
-                    <br />
-               
+
+                <h:outputLabel value="Valor Declarado: "/>
+                <h:inputText value="#{controleDadosCompra.objeto.valorDeclarado}"
+                             size="10" maxlength="10"
+                             required="true" requiredMessage="Valor Declarado é Obrigatorio"/>
+
+
+                <br />
+                <br />
+                <p:commandButton value="Calcular Frete" icon=" ui-icon-calculator"
+                                 actionListener="#{controleDadosCompra.calcularFrete()}"
+                                 update="formEdicao formListagem"/>
+                <br />
+                <br />
+
 
 
 
@@ -131,10 +144,7 @@
             <h:inputText value="#{controleDadosCompra.objeto.valorCompra}"
                          size="10" maxlength="10"/>
 
-            <h:outputLabel value="Valor Declarado: "/>
-            <h:inputText value="#{controleDadosCompra.objeto.valorDeclarado}"
-                         size="10" maxlength="10"
-                         required="true"/>
+
             <br />
             <br />
             <p:commandButton value="Salvar" icon="ui-icon-disk"

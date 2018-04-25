@@ -12,8 +12,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import javax.inject.Named;
+import javax.rmi.CORBA.Util;
 import org.tempuri.CResultado;
 import org.tempuri.CalcPrecoPrazoWS;
 
@@ -118,9 +121,14 @@ public class controleDadosCompra implements Serializable{
                objeto.getAvisoRecebimento());//aviso de recebimento
         
 
-        System.out.println(resultado.getServicos().getCServico().get(0).getPrazoEntrega());
+       // System.out.println(resultado.getServicos().getCServico().get(0).getPrazoEntrega());
+       if(!resultado.getServicos().getCServico().get(0).getMsgErro().isEmpty()){
+           FacesMessage msg3 = new FacesMessage(resultado.getServicos().getCServico().get(0).getMsgErro());
+           FacesContext.getCurrentInstance().addMessage(null, msg3);
+       }else{
         objeto.setDataEntrega(resultado.getServicos().getCServico().get(0).getPrazoEntrega());
         objeto.setValorFrete(Double.parseDouble(resultado.getServicos().getCServico().get(0).getValor().replace(",", ".")));
+       } 
         
         
     }    
